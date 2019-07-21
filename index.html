@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>MHS Handbook</title>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Documentation support troubleshooting">
+    <meta name="author" content="Nguyen, Minh Hung">    
+    <link rel="shortcut icon" href="favicon.ico">  
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <!-- FontAwesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.8.2/js/all.js" integrity="sha384-DJ25uNYET2XCl5ZF++U8eNxPWqcKohUUBUpKGlNLMchM7q4Wjg2CUpjHLaL8yYPH" crossorigin="anonymous"></script>
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">   
+    <!-- Plugins CSS -->    
+    <link rel="stylesheet" href="assets/plugins/prism/prism.css">
+    <link rel="stylesheet" href="assets/plugins/elegant_font/css/style.css">  
+      
+    <!-- Theme CSS -->
+    <link id="theme-style" rel="stylesheet" href="assets/css/styles.css">
+    
+</head> 
+
+<body class="body-green">
+    <div class="page-wrapper">
+        <!-- ******Header****** -->
+        <header id="header" class="header">
+            <div class="container">
+                <div class="branding">
+                    <h1 class="logo">
+                        <a href="index.html">
+                            <span aria-hidden="true" class="icon_documents_alt icon"></span>
+                            <span class="text-highlight">NG-ACS</span><span class="text-bold">Docs</span>
+                        </a>
+                    </h1>
+                    
+                </div><!--//branding-->
+                
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">MHS</a></li>
+                    <li class="breadcrumb-item active">HandBook</li>
+                </ol>
+                
+                <div class="top-search-box">
+	                 <form class="form-inline search-form justify-content-center" action="" method="get">
+	            
+			            <input type="text" placeholder="Search..." name="search" class="form-control search-input">
+			            
+			            <button type="submit" class="btn search-btn" value="Search"><i class="fas fa-search"></i></button>
+			            
+			        </form>
+                </div>
+                
+            </div><!--//container-->
+        </header><!--//header-->
+        <div class="doc-wrapper">
+            <div class="container">
+                <div id="doc-header" class="doc-header text-center">
+                    <h1 class="doc-title"><i class="icon fa fa-paper-plane"></i> Troubleshooting Guide</h1>
+                    <div class="meta"><i class="far fa-clock"></i> Last updated: July 20th, 2019</div>
+                </div><!--//doc-header-->
+                <div class="doc-body row">
+                    <div class="doc-content col-md-9 col-12 order-1">
+                        <div class="content-inner">
+                            <section id="download-section" class="doc-section">
+                                <h2 class="section-title">Requirement</h2>
+                                <div class="section-block">
+                                    <p>Read & Understand the specification from supplier - <a href="https://en.wikipedia.org/wiki/Tesla_Grohmann_Automation" target="_blank">Tesla Grohmann Automation</a><br>Strictly follow instruction of all Function Calibration.
+                                    </p>
+                                    <a href="" class="btn btn-green btn-cta" target="_blank"><i class="fas fa-code-branch"></i> L2/L3 Documentation</a>
+                                </div>
+                            </section><!--//doc-section-->
+                            <section id="installation-section" class="doc-section">
+                                <h2 class="section-title">Substrate Out of Pocket</h2><br>
+                                <p>SOOP is the chronic error at tool NGACS - MHS main tool. It is a frequent and common error. Furthermore, impact does not only at MHS module (MA, AU, APRT,... ) , SOOP can be connected to the quality issue of our down stream: BAM & CAM Module.<br><br>
+                                    It contains many factor, such as Mechanical, Sofware, and Material, and a core factor of this error come from mechanical such as Bond Head, Voice Coil, SOOP Laser, and Conveyor. This core factor divide SOOP into 3 type of error (the other factors will not discuss in this chapter)
+                                </p>
+                                <div id="step1"  class="section-block">
+                                    <h3 class="block-title">Real</h3>
+                                    <p>Actually, substrate out of pocket & detected by SOOP Laser measurement.</p>
+                                                <ul><li><h6>Pick and Place System</h6>
+                                                <pre><code class="language-css">
+- Failure Accuracy Criteria often: Perform required Calibration.
+- Loosening Down Looking Camera sometimes: Replace Bond Head.
+- Instability of Down Looking Camera rarely: Replace Bond Head.
+- Loosening Bond Head's attached screw occasionally: Tighten by cap-head-hex 3mm/2Nm Torque.
+                                                </code></pre><br></li>
+                                                <li><h6>The Conveyor System</h6>
+                                                <pre><code class="language-css">
+- Lifter Plate not fully open/close e-spring often: Adjust air pressure valve on Lifter Plate.
+ (SOOP at carrier's corner pockets)
+- Lifter Plate up/down impact to planarity of carrier often: Replace Lifter Plate.
+ (Lead to SOOP when open/close e-spring)
+                                                </code></pre></li></ul>
+                                    <!--//code-block-->
+                                </div><!--//section-block-->
+                                <div id="step2"  class="section-block">
+                                    <h3 class="block-title">Fake</h3>
+                                    <p>SOOP Laser measurement incorrect lead to wrong trigger.</p>
+                                                <ul><li><h6 id="escape">SOOP Laser sensor</h6>
+                                                <pre><code class="language-css">
+- Deviation of Laser Beam often: Perform Laser Calibration.
+- Loosening of Laser sensor's Bracket sometimes: Replace new Bracket.
+- Laser accuracy occasionally: Replace new Laser sensor.
+                                                </code></pre><br></li>
+                                                <li><h6>Carrier's Process Position</h6>
+                                                <pre><code class="language-css">
+- Loosening Conveyor Belt often: Tension belt or Replace belt.
+- Incorrect Conveyor Relation Point often: Teaching paramters.
+ (This parameter should be taught 1 time when setup machine)
+- Distance between sensor and process position often: Adjust paramter.
+ (Mostly, this is the consequences of other issue)
+- Trigger threshold of sensor not reach fiducial sometimes: Teaching amplifier of conveyor's sensor.
+ (Only for vertical sensor)
+                                                </code></pre></li>
+                                                <li><h6>The Conveyor System</h6>
+                                                    <pre><code class="language-css">
+- Offset of Process area planarity over 0.2mm often: L3 Documentation.
+- Offset of Process support planarity over 0.2mm often: L3 Documentation. 
+- Planarity of conveyor system in respect to X/Y Axis system out of tolerance (304.5mm +/-0.3mm) nobodyverifylol: L3 Documentation.
+- Parallelism of Conveyor-Axis system (Maximum offset of straightedge over 0.05mm) nobodyverifylol: L3 Documentation.
+                                                    </code></pre></li></ul>
+                                </div><!--//section-block-->
+                                <div id="step3"  class="section-block">
+                                    <h3 class="block-title">Escape</h3>
+                                    <p>Basically, It's combination of 2 error Fake & Real SOOP.</p>
+                                    <div class="callout-block callout-info">
+                                        <div class="icon-holder">
+                                            <i class="fas fa-info-circle"></i>
+                                        </div><!--//icon-holder-->
+                                        <div class="content">
+                                            <h4 class="callout-title">Data</h4>
+                                            <p>Mostly it's come from <a href="#escape" class="scrollto">Deviation of Laser Beam</a>.</p>
+                                        </div><!--//content-->
+                                    </div><!--//callout-block-->
+                                </div><!--//section-block-->
+                            </section><!--//doc-section-->
+                            
+                            <section id="code-section" class="doc-section">
+                                <h2 class="section-title">Feeder Yield Issues</h2><br>
+                                <p>Yield in MHS has improved in Last 2 Years (Quality Commit). Major of rejected units come from The Feeder - The Complex Mechanism Part of ACS<br><br>
+                                    Ironically, we don't have Vision Software to offset the deviation inside Feeder System. To deal with that, all replacing, adjusting or teaching event must be elaborate performed.  
+                                </p>
+                                <div id="html" class="section-block">
+                                    <h3 class="block-title">Module SBT51</h3>
+                                    <p>Almost Normal Tracer/YI are the result of Tray was not located in SBT51 when placement units.</p>
+                                    <h6>Factor Table</h6>
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>Object</th>
+                                                    <th>Symptom</th>
+                                                    <th>Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row">1</th>
+                                                    <td>Material (Tray)</td>
+                                                    <td>damaged, bent...</td>
+                                                    <td>Reject or Hold to further investigation</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">2</th>
+                                                    <td>Belt, O-ring</td>
+                                                    <td>damaged, worn out...</td>
+                                                    <td>Replace</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">3</th>
+                                                    <td>Support roller</td>
+                                                    <td>higher than belt's surface</td>
+                                                    <td>Adjust position of roller - leveling with belt's surface</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">4</th>
+                                                    <td>Conveyor (SBT34/SBT51)</td>
+                                                    <td>unbalance</td>
+                                                    <td>-Module SBT34: leveling Feeder<br>
+                                                        -Module SBT51: leveling Open/Close conveyor left & right side<br>
+                                                        Deviation between 4 point at 4 conveyor's corner less than 0.2mm
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">5</th>
+                                                    <td>Lift-bench (in upper position)</td>
+                                                    <td>higher than processing tray</td>
+                                                    <td>Adjust gap between Lift-bench plane & SBT51 plane to "~1mm"</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">6</th>
+                                                    <td>Alignment</td>
+                                                    <td>module SBT34 misalign to SBT51</td>
+                                                    <td>Perform Up/Down align & Left/Right Alignment</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">7</th>
+                                                    <td>Proximity Sensor (SBT51)</td>
+                                                    <td>Noise - not switching on/off right away</td>
+                                                    <td>Teach or Replace<br>
+                                                        Verify in ScopeView (sample size should be more than 10 trays)
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">8</th>
+                                                    <td>Motor Card</td>
+                                                    <td>speed</td>
+                                                    <td>CS1/CS2: Adjustable - CS3: 8 - CS4: 0<br>
+                                                        CS1: Slow Speed (Signal #5 trigger)
+                                                        CS2: Fast Speed (Signal #5 & #7 trigger)
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">9</th>
+                                                    <td>Sliding guide</td>
+                                                    <td>rough surface</td>
+                                                    <td>Remove to grinding.</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div><!--//table-responsive-->
+                                    <div class="callout-block callout-warning">
+                                        <div class="icon-holder">
+                                            <i class="fas fa-bug"></i>
+                                        </div><!--//icon-holder-->
+                                        <div class="content">
+                                            <h4 class="callout-title">Validation</h4>
+                                            <p>- Loading single tray to feeder at least 10 times to measurement the transport time from SBT34's downstream sensor to SBT51. 
+                                               tolerance between each time should be "1.7s +/-0.1s"<br>
+                                            <a>Use ScopeView</a><br>
+                                            - Tray isn't bounce back after hitting stopper. (Monitor by DLC)
+                                            </p>
+                                        </div><!--//content-->
+                                    </div><!--//callout-block-->
+                                </div><!--//section-block-->
+                                <div id="css" class="section-block">
+                                    <h3 class="block-title">Stacker/De-stacker</h3>
+                                    <h6>Factor Table</h6>
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>Object</th>
+                                                    <th>Symptom</th>
+                                                    <th>Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row">1</th>
+                                                    <td>Pulley</td>
+                                                    <td>damaged, missing washers...</td>
+                                                    <td>Replace or Add washers</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">2</th>
+                                                    <td>Driving Belt</td>
+                                                    <td>damaged, deformed...</td>
+                                                    <td>Replace</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">3</th>
+                                                    <td>Screw</td>
+                                                    <td>worn out, loosen, missing...</td>
+                                                    <td>Replace or Add screw & lock washer </td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">4</th>
+                                                    <td>Belt Tension</td>
+                                                    <td>too tight/too loose</td>
+                                                    <td>-2 Pulleys: 40-50 Hz<br>
+                                                        -3 Pulleys: 38-48 HZ<br>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">5</th>
+                                                    <td>Clamping plane</td>
+                                                    <td>fingers aren't balance</td>
+                                                    <td>Leveling 4 fingers - maximum tolerance between lowest & highest: "0.5mm"</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">6</th>
+                                                    <td>Parameter</td>
+                                                    <td>-incorrect z-axis zero position<br>
+                                                        -incorrect pickup tray posistion
+                                                    </td>
+                                                    <td>-Zero position: Surface Feeder Jig "+0.1mm"<br>
+                                                        -Pickup tray position: "-9.5mm"
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">7</th>
+                                                    <td>Filling Capacity Sensor</td>
+                                                    <td>trigger, position</td>
+                                                    <td>-Setup of switching point.<br>
+                                                        -Add washer to adjust height.<br>
+                                                        Criteria: Zero "+8mm" trigger - Zero "+9.5mm" not trigger
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <div class="callout-block callout-warning">
+                                            <div class="icon-holder">
+                                                <i class="fas fa-bug"></i>
+                                            </div><!--//icon-holder-->
+                                            <div class="content">
+                                                <h4 class="callout-title">Validation</h4>
+                                                <p>Dry cycle with empty tray & Monitor.</p>
+                                            </div><!--//content-->
+                                        </div><!--//callout-block-->
+                                    </div><!--//table-responsive-->
+                                </div><!--//section-block-->
+                                <div id="sass" class="section-block">
+                                    <h3 class="block-title">Lifter</h3>
+                                    <ul><li><h6 id="escape">Lift-bench</h6>
+                                        <pre><code class="language-css">
+- Units OOP when tray was fell down from SBT51 to Lift-bench's upper position often: Adjust gap to "1mm".
+- Gripper Cylinder malfunction sometimes: Replace.
+- Shock Absorber of Lift-bench malfunction sometimes: Replace.
+                                        </code></pre><br></li>
+                                        <li><h6>Lift 2 (SBT35)</h6>
+                                        <pre><code class="language-css">
+- Shock Absorber of Lift 2 malfunction often: Replace
+                                        </code></pre></li>
+                                        <li><h6>The Conveyor System</h6>
+                                            <pre><code class="language-css">
+- Over-clamp at SBT51 sometimes: Adjust Open-end & Closed-end of clamper.
+- Open/Close conveyor is interrupted occasionally: Tighten screw & add washer/ lock washer. 
+                                            </code></pre></li></ul>
+                                </div><!--//section-block-->
+                            </section><!--//doc-section-->
+                            <section id="callouts-section" class="doc-section">
+                                <h2 class="section-title">Axis Error</h2>
+                                <div id="x" class="section-block"><h3>X Axis</h3></div>
+                                <div id="y" class="section-block"><h3>Y Axis</h3></div>
+                                <div id="z" class="section-block"><h3>Z Axis</h3></div>
+                                <div id="r" class="section-block"><h3>R Axis</h3></div>
+                            </section><!--//doc-section-->
+                            <section id="tables-section" class="doc-section">
+                                <h2 class="section-title">Vision Software</h2>
+                            </section><!--//doc-section-->
+                            
+                 
+                        </div><!--//content-inner-->
+                    </div><!--//doc-content-->
+                    <div class="doc-sidebar col-md-3 col-12 order-0 d-none d-md-flex">
+                        <div id="doc-nav" class="doc-nav">
+	                        
+	                            <nav id="doc-menu" class="nav doc-menu flex-column sticky">
+	                                <a class="nav-link scrollto" href="#download-section">Requirement</a>
+	                                <a class="nav-link scrollto" href="#installation-section">Substrate Out of Pocket</a>
+                                    <nav class="doc-sub-menu nav flex-column">
+                                        <a class="nav-link scrollto" href="#step1">Real</a>
+                                        <a class="nav-link scrollto" href="#step2">Fake</a>
+                                        <a class="nav-link scrollto" href="#step3">Escape</a>
+                                    </nav><!--//nav-->
+	                                <a class="nav-link scrollto" href="#code-section">Feeder Yield Issues</a>
+                                    <nav class="doc-sub-menu nav flex-column">
+                                        <a class="nav-link scrollto" href="#html">Module SBT51</a>
+                                        <a class="nav-link scrollto" href="#css">Stacker/De-stacker</a>
+                                        <a class="nav-link scrollto" href="#sass">Lifter</a>
+                                    </nav><!--//nav-->
+                                    <a class="nav-link scrollto" href="#callouts-section">Axis Error</a>
+                                    <nav class="doc-sub-menu nav flex-column">
+                                            <a class="nav-link scrollto" href="#x">X Axis</a>
+                                            <a class="nav-link scrollto" href="#y">Y Axis</a>
+                                            <a class="nav-link scrollto" href="#z">Z Axis</a>
+                                            <a class="nav-link scrollto" href="#r">R Axis</a>
+                                        </nav><!--//nav-->
+	                                <a class="nav-link scrollto" href="#tables-section">Vision Software</a>
+	                            </nav><!--//doc-menu-->
+	                        
+                        </div>
+                    </div><!--//doc-sidebar-->
+                </div><!--//doc-body-->              
+            </div><!--//container-->
+        </div><!--//doc-wrapper-->
+        
+        <div id="promo-block" class="promo-block">
+            
+        </div><!--//promo-block-->
+        
+    </div><!--//page-wrapper-->
+    
+    <footer id="footer" class="footer text-center">
+        <div class="container">
+            <!--/* This template is released under the Creative Commons Attribution 3.0 License. Please keep the attribution link below when using for your own project. Thank you for your support. :) If you'd like to use the template without the attribution, you can buy the commercial license via our website: themes.3rdwavemedia.com */-->
+            <small class="copyright">Written with <i class="fas fa-heart"></i> by <a href="" target="_blank">Nguyen, Minh Hung</a> for MHS module</small>
+            
+        </div><!--//container-->
+    </footer><!--//footer-->
+    
+     
+    <!-- Main Javascript -->          
+    <script type="text/javascript" src="assets/plugins/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/plugins/prism/prism.js"></script>    
+    <script type="text/javascript" src="assets/plugins/jquery-scrollTo/jquery.scrollTo.min.js"></script>      
+    <script type="text/javascript" src="assets/plugins/stickyfill/dist/stickyfill.min.js"></script>                                                             
+    <script type="text/javascript" src="assets/js/main.js"></script>
+    
+</body>
+</html> 
+
